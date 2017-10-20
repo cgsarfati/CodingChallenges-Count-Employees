@@ -38,6 +38,14 @@ answer::
 
 """
 
+# brainstorm:
+    # want to traverse tree (either depth/breadth method), keeping
+    # a counter in the process. traverse until children is None (meaning leaf)
+    # at the end, have a lst of all nodes. count how many items in final lst.
+    # recursive method -- progress until base case where children is None
+        # children = kept in list? pop off w/ each traversal until empty lst?
+        # popping from to_visit lst could be where counter is
+
 
 class Node(object):
     """Node in a tree."""
@@ -53,6 +61,8 @@ class Node(object):
         include *everyone* under them, not just people who directly report to
         them.
         """
+
+
 
 
 if __name__ == '__main__':
