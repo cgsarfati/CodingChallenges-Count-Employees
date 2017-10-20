@@ -55,6 +55,11 @@ class Node(object):
         self.children = children or []
 
     def count_employees(self):
+        """Use recursion."""
+
+        #
+
+    def count_employees_nonrecursive(self):
         """Return a count of how many employees this person manages.
 
         Return a count of how many people that manager manages. This should
@@ -62,11 +67,25 @@ class Node(object):
         them.
         """
 
+        # keep count
+        count = 0
 
+        # keep track of children
+        to_visit = [self]
+
+        # while lst not empty
+        while to_visit:
+            # get last item from lst (DEPTH-FIRST SEARCH)
+            emp = to_visit.pop()
+
+            # update count and add children
+            for child in emp.children:
+                count += 1
+                to_visit.append(child)
+        return count
 
 
 if __name__ == '__main__':
     import doctest
     if doctest.testmod().failed == 0:
         print "\n*** ALL TESTS PASSED. YOU ARE A TREE GENIUS!\n"
-
