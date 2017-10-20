@@ -57,7 +57,16 @@ class Node(object):
     def count_employees(self):
         """Use recursion."""
 
-        #
+        # initialize counter
+        count = 0
+
+        # BASE: loop through children until no more to loop over
+        for child in self.children:
+            # inc. count in current recursive fn
+            # PROGRESSION: recurse to child (DEPTH-FIRST)
+            count = count + 1 + child.count_employees()
+
+        return count
 
     def count_employees_nonrecursive(self):
         """Return a count of how many employees this person manages.
@@ -81,6 +90,8 @@ class Node(object):
             # update count and add children
             for child in emp.children:
                 count += 1
+
+                # used .append vs .extend for counting purposes
                 to_visit.append(child)
         return count
 
